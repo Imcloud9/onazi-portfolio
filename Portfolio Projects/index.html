@@ -402,13 +402,6 @@ time {
 	margin-right: 0.5em;
 }
 
-/*
- * Render emoji icons using a ::before pseudo-element to keep the glyph
- * out of the DOM textContent traversal. This avoids double-rendering icons
- * in callouts and page titles.
- * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
- * flag as a duplicate tag after codegen.
- */
 .icon[data-emoji]::before {
 	content: attr(data-emoji);
 }
@@ -508,7 +501,6 @@ code {
 	background: rgba(135, 131, 120, 0.15);
 	border-radius: 3px;
 	padding: 0.2em 0.4em;
-	border-radius: 3px;
 	font-size: 85%;
 	tab-size: 2;
 }
@@ -622,174 +614,26 @@ blockquote.quote-large {
 .pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
 .pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
 .pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight-default {
-	color: rgba(44, 44, 43, 1);
-}
-.highlight-gray {
-	color: rgba(125, 122, 117, 1);
-	fill: rgba(125, 122, 117, 1);
-}
-.highlight-brown {
-	color: rgba(159, 118, 90, 1);
-	fill: rgba(159, 118, 90, 1);
-}
-.highlight-orange {
-	color: rgba(210, 123, 45, 1);
-	fill: rgba(210, 123, 45, 1);
-}
-.highlight-yellow {
-	color: rgba(203, 148, 52, 1);
-	fill: rgba(203, 148, 52, 1);
-}
-.highlight-teal {
-	color: rgba(80, 148, 110, 1);
-	fill: rgba(80, 148, 110, 1);
-}
-.highlight-blue {
-	color: rgba(56, 125, 201, 1);
-	fill: rgba(56, 125, 201, 1);
-}
-.highlight-purple {
-	color: rgba(154, 107, 180, 1);
-	fill: rgba(154, 107, 180, 1);
-}
-.highlight-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.highlight-red {
-	color: rgba(207, 81, 72, 1);
-	fill: rgba(207, 81, 72, 1);
-}
-.highlight-default_background {
-	color: rgba(44, 44, 43, 1);
-}
-.highlight-gray_background {
-	background: rgba(42, 28, 0, 0.07);
-}
-.highlight-brown_background {
-	background: rgba(139, 46, 0, 0.086);
-}
-.highlight-orange_background {
-	background: rgba(224, 101, 1, 0.129);
-}
-.highlight-yellow_background {
-	background: rgba(211, 168, 0, 0.137);
-}
-.highlight-teal_background {
-	background: rgba(0, 100, 45, 0.09);
-}
-.highlight-blue_background {
-	background: rgba(0, 124, 215, 0.094);
-}
-.highlight-purple_background {
-	background: rgba(102, 0, 178, 0.078);
-}
-.highlight-pink_background {
-	background: rgba(197, 0, 93, 0.086);
-}
-.highlight-red_background {
-	background: rgba(223, 22, 0, 0.094);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(125, 122, 117, 1);
-	fill: rgba(125, 122, 117, 1);
-}
-.block-color-brown {
-	color: rgba(159, 118, 90, 1);
-	fill: rgba(159, 118, 90, 1);
-}
-.block-color-orange {
-	color: rgba(210, 123, 45, 1);
-	fill: rgba(210, 123, 45, 1);
-}
-.block-color-yellow {
-	color: rgba(203, 148, 52, 1);
-	fill: rgba(203, 148, 52, 1);
-}
-.block-color-teal {
-	color: rgba(80, 148, 110, 1);
-	fill: rgba(80, 148, 110, 1);
-}
-.block-color-blue {
-	color: rgba(56, 125, 201, 1);
-	fill: rgba(56, 125, 201, 1);
-}
-.block-color-purple {
-	color: rgba(154, 107, 180, 1);
-	fill: rgba(154, 107, 180, 1);
-}
-.block-color-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.block-color-red {
-	color: rgba(207, 81, 72, 1);
-	fill: rgba(207, 81, 72, 1);
-}
-.block-color-default_background {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray_background {
-	background: rgba(240, 239, 237, 1);
-}
-.block-color-brown_background {
-	background: rgba(245, 237, 233, 1);
-}
-.block-color-orange_background {
-	background: rgba(251, 235, 222, 1);
-}
-.block-color-yellow_background {
-	background: rgba(249, 243, 220, 1);
-}
-.block-color-teal_background {
-	background: rgba(232, 241, 236, 1);
-}
-.block-color-blue_background {
-	background: rgba(229, 242, 252, 1);
-}
-.block-color-purple_background {
-	background: rgba(243, 235, 249, 1);
-}
-.block-color-pink_background {
-	background: rgba(250, 233, 241, 1);
-}
-.block-color-red_background {
-	background: rgba(252, 233, 231, 1);
-}
-.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
-.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
-.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
-.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
-.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
-.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
-.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
-.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
-.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
-.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
+.highlight-default { color: rgba(44, 44, 43, 1); }
+.highlight-gray { color: rgba(125, 122, 117, 1); fill: rgba(125, 122, 117, 1); }
+.highlight-brown { color: rgba(159, 118, 90, 1); fill: rgba(159, 118, 90, 1); }
+.highlight-orange { color: rgba(210, 123, 45, 1); fill: rgba(210, 123, 45, 1); }
+.highlight-yellow { color: rgba(203, 148, 52, 1); fill: rgba(203, 148, 52, 1); }
+.highlight-teal { color: rgba(80, 148, 110, 1); fill: rgba(80, 148, 110, 1); }
+.highlight-blue { color: rgba(56, 125, 201, 1); fill: rgba(56, 125, 201, 1); }
+.highlight-purple { color: rgba(154, 107, 180, 1); fill: rgba(154, 107, 180, 1); }
+.highlight-pink { color: rgba(193, 76, 138, 1); fill: rgba(193, 76, 138, 1); }
+.highlight-red { color: rgba(207, 81, 72, 1); fill: rgba(207, 81, 72, 1); }
+.block-color-default { color: inherit; fill: inherit; }
+.block-color-gray { color: rgba(125, 122, 117, 1); fill: rgba(125, 122, 117, 1); }
+.block-color-brown { color: rgba(159, 118, 90, 1); fill: rgba(159, 118, 90, 1); }
+.block-color-orange { color: rgba(210, 123, 45, 1); fill: rgba(210, 123, 45, 1); }
+.block-color-yellow { color: rgba(203, 148, 52, 1); fill: rgba(203, 148, 52, 1); }
+.block-color-teal { color: rgba(80, 148, 110, 1); fill: rgba(80, 148, 110, 1); }
+.block-color-blue { color: rgba(56, 125, 201, 1); fill: rgba(56, 125, 201, 1); }
+.block-color-purple { color: rgba(154, 107, 180, 1); fill: rgba(154, 107, 180, 1); }
+.block-color-pink { color: rgba(193, 76, 138, 1); fill: rgba(193, 76, 138, 1); }
+.block-color-red { color: rgba(207, 81, 72, 1); fill: rgba(207, 81, 72, 1); }
 	
 </style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="3bb5c82c-ae82-4c5e-aac6-91a5d4ba443d" class="page sans" data-notion-page-icon="/icons/activity_yellow.svg"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1649478680984-01586ce84ac0?ixlib=rb-4.1.0&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon notion-static-icon" src="https://app.notion.com/icons/activity_yellow.svg"/></div><h1 class="page-title" dir="auto">Portfolio Projects</h1><p class="page-description" dir="auto">
-UX/UI • Mobile App • Web App • Web Interface</p></header><div class="page-body"><div class="collection-content-wrapper"><table class="collection-content"><colgroup><col style="width:41.17647058823529%"/><col style="width:29.411764705882355%"/><col style="width:29.411764705882348%"/></colgroup><thead><tr><th><span class="icon property-icon"><img src="https://app.notion.com/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Project Name</th><th><span class="icon property-icon"><img src="https://app.notion.com/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Category</th><th><span class="icon property-icon"><img src="https://app.notion.com/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Status</th></tr></thead><tbody><tr id="8c056628-c59a-46b9-9c88-272110152952"><td class="cell-title"><a href="Portfolio%20Projects/Medes%20Club%208c056628c59a46b99c88272110152952.html" data-notion-page-id="8c056628-c59a-46b9-9c88-272110152952" data-notion-space-id="e551b839-c659-81ad-939f-0003dbe4f53b"><img class="icon notion-static-icon" src="https://app.notion.com/icons/gym_gray.svg"/>Medes Club</a></td><td class="cell-W`Nn"><span class="selected-value select-value-color-green">Web Design</span></td><td class="cell-@V~W"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Complete</span></td></tr><tr id="8ffe017d-1978-425c-871b-bc03ccca2e5a"><td class="cell-title"><a href="Portfolio%20Projects/Oisoshi%208ffe017d1978425c871bbc03ccca2e5a.html" data-notion-page-id="8ffe017d-1978-425c-871b-bc03ccca2e5a" data-notion-space-id="e551b839-c659-81ad-939f-0003dbe4f53b"><img class="icon notion-static-icon" src="https://app.notion.com/icons/dining_green.svg"/>Oisoshi</a></td><td class="cell-W`Nn"><span class="selected-value select-value-color-blue">Product Design</span></td><td class="cell-@V~W"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Complete</span></td></tr><tr id="cc08666c-99c2-46a7-aada-d42361858220"><td class="cell-title"><a href="Portfolio%20Projects/The%20Living%20Meals%20cc08666c99c246a7aadad42361858220.html" data-notion-page-id="cc08666c-99c2-46a7-aada-d42361858220" data-notion-space-id="e551b839-c659-81ad-939f-0003dbe4f53b"><img class="icon notion-static-icon" src="https://app.notion.com/icons/burger_pink.svg"/>The Living Meals</a></td><td class="cell-W`Nn"><span class="selected-value select-value-color-orange">Web App Design</span></td><td class="cell-@V~W"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Complete</span></td></tr><tr id="b16f2b9d-0949-4862-94e5-8c787318dcef"><td class="cell-title"><a href="Portfolio%20Projects/Aibolot%20b16f2b9d0949486294e58c787318dcef.html" data-notion-page-id="b16f2b9d-0949-4862-94e5-8c787318dcef" data-notion-space-id="e551b839-c659-81ad-939f-0003dbe4f53b"><img class="icon notion-static-icon" src="https://app.notion.com/icons/parking_orange.svg"/>Aibolot</a></td><td class="cell-W`Nn"><span class="selected-value select-value-color-blue">Product Design</span></td><td class="cell-@V~W"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Complete</span></td></tr></tbody></table></div><br/><br/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+UX/UI • Mobile App • Web App • Web Interface</p></header><div class="page-body"><div class="collection-content-wrapper"><table class="collection-content"><colgroup><col style="width:41.17647058823529%"/><col style="width:29.411764705882355%"/><col style="width:29.411764705882348%"/></colgroup><thead><tr><th><span class="icon property-icon"><img src="https://app.notion.com/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Project Name</th><th><span class="icon property-icon"><img src="https://app.notion.com/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;display:block"/></span>Category</th><th><span class="icon property-icon"><img src="https://app.notion.com/icons/burst_gray.svg" style="width:14px;height:14px;display:block"/></span>Status</th></tr></thead><tbody><tr id="8c056628-c59a-46b9-9c88-272110152952"><td class="cell-title"><a href="Medes%20Club/index.html" data-notion-page-id="8c056628-c59a-46b9-9c88-272110152952" data-notion-space-id="e551b839-c659-81ad-939f-0003dbe4f53b"><img class="icon notion-static-icon" src="https://app.notion.com/icons/gym_gray.svg"/>Medes Club</a></td><td class="cell-W`Nn"><span class="selected-value select-value-color-green">Web Design</span></td><td class="cell-@V~W"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Complete</span></td></tr><tr id="8ffe017d-1978-425c-871b-bc03ccca2e5a"><td class="cell-title"><a href="Oisoshi/index.html" data-notion-page-id="8ffe017d-1978-425c-871b-bc03ccca2e5a" data-notion-space-id="e551b839-c659-81ad-939f-0003dbe4f53b"><img class="icon notion-static-icon" src="https://app.notion.com/icons/dining_green.svg"/>Oisoshi</a></td><td class="cell-W`Nn"><span class="selected-value select-value-color-blue">Product Design</span></td><td class="cell-@V~W"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Complete</span></td></tr><tr id="cc08666c-99c2-46a7-aada-d42361858220"><td class="cell-title"><a href="The%20Living%20Meals/index.html" data-notion-page-id="cc08666c-99c2-46a7-aada-d42361858220" data-notion-space-id="e551b839-c659-81ad-939f-0003dbe4f53b"><img class="icon notion-static-icon" src="https://app.notion.com/icons/burger_pink.svg"/>The Living Meals</a></td><td class="cell-W`Nn"><span class="selected-value select-value-color-orange">Web App Design</span></td><td class="cell-@V~W"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Complete</span></td></tr><tr id="b16f2b9d-0949-4862-94e5-8c787318dcef"><td class="cell-title"><a href="Aibolot/index.html" data-notion-page-id="b16f2b9d-0949-4862-94e5-8c787318dcef" data-notion-space-id="e551b839-c659-81ad-939f-0003dbe4f53b"><img class="icon notion-static-icon" src="https://app.notion.com/icons/parking_orange.svg"/>Aibolot</a></td><td class="cell-W`Nn"><span class="selected-value select-value-color-blue">Product Design</span></td><td class="cell-@V~W"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Complete</span></td></tr></tbody></table></div><br/><br/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
